@@ -1,1 +1,174 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#fw_al_007" data-slide-to="0" class="active"></li>
+      <li data-target="#fw_al_007" data-slide-to="1"></li>
+      <li data-target="#fw_al_007" data-slide-to="2"></li>
+    </ol>
+
+    <!-- Wrapper For Slides -->
+    <div class="carousel-inner" role="listbox">
+
+      <!-- First Slide -->
+      <div class="carousel-item active">
+
+        <!-- Slide Background -->
+        <img src="{% static 'img/baner-1.jpg' %}" alt="fw_al_007_01">
+
+        <!-- Slide Text Layer -->
+        <div class="fw_al_007_slide">
+          <h3 data-animation="animated flipInX">Notícias</h3>
+          <h1 data-animation="animated flipInX"><span>Aqui vai</span> o título</h1>
+          <p data-animation="animated flipInX">Aqui uma breve descrição</p>
+          <a href="#" data-animation="animated flipInX">Leia Mais</a>
+        </div>
+      </div>
+      <!-- End of Slide -->
+
+      <!-- Second Slide -->
+      <div class="carousel-item">
+
+        <!-- Slide Background -->
+        <img src="{% static 'img/baner-2.jpg' %}" alt="fw_al_007_02">
+
+        <!-- Slide Text Layer -->
+        <div class="fw_al_007_slide">
+          <h3 data-animation="animated flipInX">Novidades</h3>
+          <h1 data-animation="animated flipInX"><span>Aqui vai</span> o título</h1>
+          <p data-animation="animated flipInX">Aqui uma breve descrição</p>
+          <a href="#" data-animation="animated flipInX">Lei Mais</a>
+        </div>
+      </div>
+      <!-- End of Slide -->
+
+      <!-- Third Slide -->
+      <div class="carousel-item">
+
+        <!-- Slide Background -->
+        <img src="{% static 'img/baner-3.jpg' %}" alt="fw_al_007_03">
+
+        <!-- Slide Text Layer -->
+        <div class="fw_al_007_slide">
+          <h3 data-animation="animated flipInX">Eventos</h3>
+          <h1 data-animation="animated flipInX"><span>Aqui vai</span> o título</h1>
+          <p data-animation="animated flipInX">Uma breve descrição</p>
+          <a href="#" data-animation="animated flipInX">Leia Mais</a>
+        </div>
+      </div>
+      <!-- End of Slide -->
+
+    </div><!-- End of Wrapper For Slides -->
+
+    <!-- Left Control -->
+    <a class="carousel-control-prev" href="#fw_al_007" data-slide="prev">
+      <span class="fa fa-angle-left" aria-hidden="true"></span>
+    </a>
+    <!-- Right Control -->
+    <a class="carousel-control-next" href="#fw_al_007" data-slide="next">
+      <span class="fa fa-angle-right" aria-hidden="true"></span>
+    </a>
+  </div>
+  <!-- End -->
+  <div class="noticias-eventos">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 noticia-evento">
+          <h2 class="text-center section-heading">Notícias</h2>
+          <hr class="my-4">
+          <div class="text-center mx-auto service-box mt-5"><img class="img-noticia-evento" src="{% static 'img/contato-bg.jpg' %}" width="100%">
+            <h3 class="mb-3">Título da Notícia</h3>
+            <p class="text-muted mb-0">Descrição da notícia</p>
+          </div>
+        </div>
+        <div class="col-md-6 noticia-evento">
+          <h2 class="text-center section-heading">Eventos</h2>
+          <hr class="my-4">
+          <div class="text-center mx-auto service-box mt-5"><img class="img-noticia-evento" src="{% static 'img/contato-bg.jpg' %}" width="100%">
+            <h3 class="mb-3">Título do Evento</h3>
+            <p class="text-muted mb-0">Descrição do devento</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="team-clean" style="background-color: #282d32;">
+    <div class="container">
+      <div class="intro">
+        <h2 class="text-center section-heading" style="color: #ff9600;">Diretoria</h2>
+      </div>
+      <div class="row d-md-flex justify-content-md-center people">
+        <div class="col-md-6 col-lg-4 item">
+          <h3 class="name" style="color: #ff9600;"><strong>Rafael Sulino de Castro&nbsp;</strong><br></h3>
+          <p class="title"><strong>presidente&nbsp;</strong></p>
+        </div>
+      </div>
+      <div class="row d-md-flex justify-content-md-center people">
+        <div class="col-md-6 col-lg-4 item">
+          <h3 class="name" style="color: #ff9600;"><strong>Murilo Klebis Bovo&nbsp;</strong></h3>
+          <p class="title"><strong>Vice-presidente&nbsp;</strong></p>
+        </div>
+        <div class="col-md-6 col-lg-4 item">
+          <h3 class="name" style="color: #ff9600;"><strong>José Henrique Castilho Girotto&nbsp;</strong></h3>
+          <p class="title"><strong>Diretor Técnico&nbsp;</strong></p>
+        </div>
+      </div>
+      <div class="row d-md-flex justify-content-md-center people">
+        <div class="col-md-6 col-lg-4 item">
+          <h3 class="name" style="color: #ff9600;"><strong>Alyson Zarlei Alves e Silva&nbsp;</strong><br></h3>
+          <p class="title"><strong>Diretor Tesoureiro&nbsp;</strong><br></p>
+        </div>
+        <div class="col-md-6 col-lg-4 item">
+          <h3 class="name" style="color: #ff9600;"><strong>Wêsney Gonzaga da Silva&nbsp;</strong><br></h3>
+          <p class="title"><strong>Diretor de Arbitragem</strong><br></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section id="galeria" class="p-0">
+    <div class="container-fluid p-0" style="background-color: #333333;">
+      <div class="row no-gutters popup-gallery">
+        <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/1.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/1.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+        <div
+          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/2.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/2.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+        <div
+          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/3.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/3.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+        <div
+          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/4.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/4.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+        <div
+          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/5.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/5.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+        <div
+          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/6.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/6.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+      </div>
+    </div>
+  </section>
+  <section id="filiados">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+          <h2 class="section-heading">Patrocínio</h2>
+          <hr class="my-4" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col"></div>
+        <div class="col"><img src="{% static 'img/logo-saude-premier.png' %}" width="300pt" /></div>
+        <div class="col"></div>
+      </div>
+      <div class="row">
+        <div class="col-lg-8 mx-auto text-center filiados">
+          <h2 class="section-heading">Filiados</h2>
+          <hr class="my-4" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-lg-4 ml-auto text-center"><img src="{% static 'img/logo-marista.png' %}" width="300pt" /></div>
+        <div class="col-lg-4 mr-auto text-center"><img src="{% static 'img/logo-sao-geraldo.png' %}" width="300pt" /></div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

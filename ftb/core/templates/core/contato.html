@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="contact-clean" style="background-image: url({% static 'img/contato-bg.jpg' %}">
+    <form method="post">
+      <h2 class="text-center">Fale Conosco</h2>
+      <div class="form-group"><input class="form-control" type="text" name="nome" placeholder="Nome"></div>
+      <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
+      <div class="form-group"><textarea class="form-control" name="mensagem" placeholder="Mensagem" rows="20"></textarea></div>
+      <div class="form-group"><button class="btn btn-primary" type="submit">enviar</button></div>
+    </form>
+  </div>
+{% endblock %}
