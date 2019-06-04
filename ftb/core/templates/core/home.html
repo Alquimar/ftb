@@ -2,7 +2,8 @@
 {% load static %}
 
 {% block content %}
-  <div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+  <div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint"
+       data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
 
     <!-- Indicators -->
     <ol class="carousel-indicators">
@@ -79,20 +80,33 @@
       <div class="row">
         <div class="col-md-6 noticia-evento">
           <h2 class="text-center section-heading">Notícias</h2>
-          <hr class="my-4">
-          <div class="text-center mx-auto service-box mt-5"><img class="img-noticia-evento" src="{% static 'img/contato-bg.jpg' %}" width="100%">
-            <h3 class="mb-3">Título da Notícia</h3>
-            <p class="text-muted mb-0">Descrição da notícia</p>
-          </div>
+          {% for noticia in noticias %}
+            <hr class="my-4">
+            <div class="text-center mx-auto service-box mt-5">
+              {% if noticia.imagem %}
+                <img class="img-noticia-evento" src="{{ noticia.imagem.url }}" width="100%">
+              {% endif %}
+              <h3 class="mb-3">{{ noticia.titulo }}</h3>
+              <p class="text-muted mb-0">{{ noticia.descricao|truncatechars:100 }}</p>
+            </div>
+          {% endfor %}
         </div>
-        <div class="col-md-6 noticia-evento">
-          <h2 class="text-center section-heading">Eventos</h2>
-          <hr class="my-4">
-          <div class="text-center mx-auto service-box mt-5"><img class="img-noticia-evento" src="{% static 'img/contato-bg.jpg' %}" width="100%">
-            <h3 class="mb-3">Título do Evento</h3>
-            <p class="text-muted mb-0">Descrição do devento</p>
-          </div>
-        </div>
+        {#        <div class="col-md-6 noticia-evento">#}
+        {#          <h2 class="text-center section-heading">Notícias</h2>#}
+        {#          <hr class="my-4">#}
+        {#          <div class="text-center mx-auto service-box mt-5"><img class="img-noticia-evento" src="{% static 'img/contato-bg.jpg' %}" width="100%">#}
+        {#            <h3 class="mb-3">Título da Notícia</h3>#}
+        {#            <p class="text-muted mb-0">Descrição da notícia</p>#}
+        {#          </div>#}
+        {#        </div>#}
+        {#        <div class="col-md-6 noticia-evento">#}
+        {#          <h2 class="text-center section-heading">Eventos</h2>#}
+        {#          <hr class="my-4">#}
+        {#          <div class="text-center mx-auto service-box mt-5"><img class="img-noticia-evento" src="{% static 'img/contato-bg.jpg' %}" width="100%">#}
+        {#            <h3 class="mb-3">Título do Evento</h3>#}
+        {#            <p class="text-muted mb-0">Descrição do devento</p>#}
+        {#          </div>#}
+        {#        </div>#}
       </div>
     </div>
   </div>
@@ -132,17 +146,65 @@
   <section id="galeria" class="p-0">
     <div class="container-fluid p-0" style="background-color: #333333;">
       <div class="row no-gutters popup-gallery">
-        <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/1.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/1.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+        <div class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/1.jpg' %}"><img
+          class="img-fluid" src="{% static 'img/thumbnails/1.jpg' %}">
+          <div class="portfolio-box-caption">
+            <div class="portfolio-box-caption-content">
+              <div class="project-category text-faded"><span>Categoria</span></div>
+              <div class="project-name"><span>Nome Imagem</span></div>
+            </div>
+          </div>
+        </a></div>
         <div
-          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/2.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/2.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/2.jpg' %}"><img
+          class="img-fluid" src="{% static 'img/thumbnails/2.jpg' %}">
+          <div class="portfolio-box-caption">
+            <div class="portfolio-box-caption-content">
+              <div class="project-category text-faded"><span>categoria</span></div>
+              <div class="project-name"><span>Nome Imagem</span></div>
+            </div>
+          </div>
+        </a></div>
         <div
-          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/3.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/3.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/3.jpg' %}"><img
+          class="img-fluid" src="{% static 'img/thumbnails/3.jpg' %}">
+          <div class="portfolio-box-caption">
+            <div class="portfolio-box-caption-content">
+              <div class="project-category text-faded"><span>categoria</span></div>
+              <div class="project-name"><span>Nome Imagem</span></div>
+            </div>
+          </div>
+        </a></div>
         <div
-          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/4.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/4.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/4.jpg' %}"><img
+          class="img-fluid" src="{% static 'img/thumbnails/4.jpg' %}">
+          <div class="portfolio-box-caption">
+            <div class="portfolio-box-caption-content">
+              <div class="project-category text-faded"><span>categoria</span></div>
+              <div class="project-name"><span>Nome Imagem</span></div>
+            </div>
+          </div>
+        </a></div>
         <div
-          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/5.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/5.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/5.jpg' %}"><img
+          class="img-fluid" src="{% static 'img/thumbnails/5.jpg' %}">
+          <div class="portfolio-box-caption">
+            <div class="portfolio-box-caption-content">
+              <div class="project-category text-faded"><span>Categoria</span></div>
+              <div class="project-name"><span>Nome Imagem</span></div>
+            </div>
+          </div>
+        </a></div>
         <div
-          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/6.jpg' %}"><img class="img-fluid" src="{% static 'img/thumbnails/6.jpg' %}"><div class="portfolio-box-caption"><div class="portfolio-box-caption-content"><div class="project-category text-faded"><span>Categoria</span></div><div class="project-name"><span>Nome Imagem</span></div></div></div></a></div>
+          class="col-sm-6 col-lg-4"><a class="portfolio-box" href="{% static 'img/fullsize/6.jpg' %}"><img
+          class="img-fluid" src="{% static 'img/thumbnails/6.jpg' %}">
+          <div class="portfolio-box-caption">
+            <div class="portfolio-box-caption-content">
+              <div class="project-category text-faded"><span>Categoria</span></div>
+              <div class="project-name"><span>Nome Imagem</span></div>
+            </div>
+          </div>
+        </a></div>
       </div>
     </div>
   </section>
@@ -151,23 +213,24 @@
       <div class="row">
         <div class="col-lg-8 mx-auto text-center">
           <h2 class="section-heading">Patrocínio</h2>
-          <hr class="my-4" />
+          <hr class="my-4"/>
         </div>
       </div>
       <div class="row">
         <div class="col"></div>
-        <div class="col"><img src="{% static 'img/logo-saude-premier.png' %}" width="300pt" /></div>
+        <div class="col"><img src="{% static 'img/logo-saude-premier.png' %}" width="300pt"/></div>
         <div class="col"></div>
       </div>
       <div class="row">
         <div class="col-lg-8 mx-auto text-center filiados">
           <h2 class="section-heading">Filiados</h2>
-          <hr class="my-4" />
+          <hr class="my-4"/>
         </div>
       </div>
       <div class="row">
-        <div class="col-lg-4 ml-auto text-center"><img src="{% static 'img/logo-marista.png' %}" width="300pt" /></div>
-        <div class="col-lg-4 mr-auto text-center"><img src="{% static 'img/logo-sao-geraldo.png' %}" width="300pt" /></div>
+        <div class="col-lg-4 ml-auto text-center"><img src="{% static 'img/logo-marista.png' %}" width="300pt"/></div>
+        <div class="col-lg-4 mr-auto text-center"><img src="{% static 'img/logo-sao-geraldo.png' %}" width="300pt"/>
+        </div>
       </div>
     </div>
   </section>

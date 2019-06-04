@@ -1,8 +1,13 @@
 from django.shortcuts import render
 
+from .models import Noticia
+
 def home(request):
-    template_name = "home.html"
-    context = {}
+    noticias = Noticia.objects.all()
+    template_name = "core/home.html"
+    context = {
+        'noticias': noticias
+    }
     return render(request, template_name, context)
 
 
