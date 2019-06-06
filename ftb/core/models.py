@@ -15,6 +15,7 @@ class Noticia(AbstractModel):
     imagem = models.ImageField(upload_to='notiticas/imagens', verbose_name='Imagem',
                                null=True, blank=True)
     ordem = models.IntegerField('Ordem', null=True, blank=True)
+    destaque = models.BooleanField('Em destaque?', default=False)
 
     def __str__(self):
         return '{}'.format(self.titulo)

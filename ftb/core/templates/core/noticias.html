@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="noticias-eventos">
+    <div class="container">
+      <h2 class="text-center section-heading">Notícias</h2>
+      <hr class="my-4">
+      <div class="row">
+        {% for noticia in noticias %}
+          <div class="col-md-6 noticia-evento">
+            <div class="text-center mx-auto service-box mt-5">
+              {% if noticia.imagem %}
+                <img class="img-noticia-evento" src="{{ noticia.imagem.url }}" width="100%">
+              {% else %}
+                <img class="img-noticia-evento" src="{% static 'img/contato-bg.jpg' %}" width="100%">
+              {% endif %}
+              <h3 class="mb-3">{{ noticia.titulo }}</h3>
+              <p class="text-muted mb-0">{{ noticia.descricao|truncatechars:100 }}</p>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

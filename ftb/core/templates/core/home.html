@@ -5,63 +5,39 @@
   <div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint"
        data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
 
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#fw_al_007" data-slide-to="0" class="active"></li>
-      <li data-target="#fw_al_007" data-slide-to="1"></li>
-      <li data-target="#fw_al_007" data-slide-to="2"></li>
-    </ol>
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#fw_al_007" data-slide-to="0" class="active"></li>
+    <li data-target="#fw_al_007" data-slide-to="1"></li>
+    <li data-target="#fw_al_007" data-slide-to="2"></li>
+  </ol>
 
-    <!-- Wrapper For Slides -->
-    <div class="carousel-inner" role="listbox">
+  <!-- Wrapper For Slides -->
+  <div class="carousel-inner" role="listbox">
+    {% for noticia_destaque in noticias_destaque %}
+      {% if forloop.first %}
+        <div class="carousel-item active">
+      {% else %}
+        <div class="carousel-item">
+      {% endif %}
 
-      <!-- First Slide -->
-      <div class="carousel-item active">
+    <!-- Slide Background -->
+    {% if noticia_destaque.imagem %}
+      <img src="{{ noticia_destaque.imagem.url }}" alt="fw_al_007_01">
+    {% else %}
+      <img src="{% static 'img/contato-bg.jpg' %}" alt="fw_al_007_01">
+    {% endif %}
 
-        <!-- Slide Background -->
-        <img src="{% static 'img/baner-1.jpg' %}" alt="fw_al_007_01">
-
-        <!-- Slide Text Layer -->
-        <div class="fw_al_007_slide">
-          <h3 data-animation="animated flipInX">Notícias</h3>
-          <h1 data-animation="animated flipInX"><span>Aqui vai</span> o título</h1>
-          <p data-animation="animated flipInX">Aqui uma breve descrição</p>
-          <a href="#" data-animation="animated flipInX">Leia Mais</a>
-        </div>
-      </div>
-      <!-- End of Slide -->
-
-      <!-- Second Slide -->
-      <div class="carousel-item">
-
-        <!-- Slide Background -->
-        <img src="{% static 'img/baner-2.jpg' %}" alt="fw_al_007_02">
-
-        <!-- Slide Text Layer -->
-        <div class="fw_al_007_slide">
-          <h3 data-animation="animated flipInX">Novidades</h3>
-          <h1 data-animation="animated flipInX"><span>Aqui vai</span> o título</h1>
-          <p data-animation="animated flipInX">Aqui uma breve descrição</p>
-          <a href="#" data-animation="animated flipInX">Lei Mais</a>
-        </div>
-      </div>
-      <!-- End of Slide -->
-
-      <!-- Third Slide -->
-      <div class="carousel-item">
-
-        <!-- Slide Background -->
-        <img src="{% static 'img/baner-3.jpg' %}" alt="fw_al_007_03">
-
-        <!-- Slide Text Layer -->
-        <div class="fw_al_007_slide">
-          <h3 data-animation="animated flipInX">Eventos</h3>
-          <h1 data-animation="animated flipInX"><span>Aqui vai</span> o título</h1>
-          <p data-animation="animated flipInX">Uma breve descrição</p>
-          <a href="#" data-animation="animated flipInX">Leia Mais</a>
-        </div>
-      </div>
-      <!-- End of Slide -->
+    <!-- Slide Text Layer -->
+    <div class="fw_al_007_slide">
+      <h3 data-animation="animated flipInX">Notícias</h3>
+      <h1 data-animation="animated flipInX"><span>{{ noticia_destaque.titulo }}</span></h1>
+      <p data-animation="animated flipInX">{{ noticia_destaque.descricao|truncatechars:100 }}</p>
+      <a href="#" data-animation="animated flipInX">Leia Mais</a>
+    </div>
+    </div>
+    {% endfor %}
+    <!-- End of Slide -->
 
     </div><!-- End of Wrapper For Slides -->
 
@@ -80,33 +56,17 @@
       <div class="row">
         <div class="col-md-6 noticia-evento">
           <h2 class="text-center section-heading">Notícias</h2>
-          {% for noticia in noticias %}
+          {% for noticia_recente in noticias_recentes %}
             <hr class="my-4">
             <div class="text-center mx-auto service-box mt-5">
-              {% if noticia.imagem %}
-                <img class="img-noticia-evento" src="{{ noticia.imagem.url }}" width="100%">
+              {% if noticia_recente.imagem %}
+                <img class="img-noticia-evento" src="{{ noticia_recente.imagem.url }}" width="100%">
               {% endif %}
-              <h3 class="mb-3">{{ noticia.titulo }}</h3>
-              <p class="text-muted mb-0">{{ noticia.descricao|truncatechars:100 }}</p>
+              <a href="#modal-noticia" data-toggle="modal"><h3 class="mb-3">{{ noticia_recente.titulo }}</h3></a>
+              <p class="text-muted mb-0">{{ noticia_recente.descricao|truncatechars:100 }}</p>
             </div>
           {% endfor %}
         </div>
-        {#        <div class="col-md-6 noticia-evento">#}
-        {#          <h2 class="text-center section-heading">Notícias</h2>#}
-        {#          <hr class="my-4">#}
-        {#          <div class="text-center mx-auto service-box mt-5"><img class="img-noticia-evento" src="{% static 'img/contato-bg.jpg' %}" width="100%">#}
-        {#            <h3 class="mb-3">Título da Notícia</h3>#}
-        {#            <p class="text-muted mb-0">Descrição da notícia</p>#}
-        {#          </div>#}
-        {#        </div>#}
-        {#        <div class="col-md-6 noticia-evento">#}
-        {#          <h2 class="text-center section-heading">Eventos</h2>#}
-        {#          <hr class="my-4">#}
-        {#          <div class="text-center mx-auto service-box mt-5"><img class="img-noticia-evento" src="{% static 'img/contato-bg.jpg' %}" width="100%">#}
-        {#            <h3 class="mb-3">Título do Evento</h3>#}
-        {#            <p class="text-muted mb-0">Descrição do devento</p>#}
-        {#          </div>#}
-        {#        </div>#}
       </div>
     </div>
   </div>
@@ -234,4 +194,17 @@
       </div>
     </div>
   </section>
+
+  <div role="dialog" tabindex="-1" class="modal fade" id="modal-noticia">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Modal Title</h4><button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button></div>
+        <div class="modal-body"><img class="img-noticia-evento" src="contato-bg.jpg" width="100%" />
+          <p>The content of your modal.</p>
+        </div>
+        <div class="modal-footer"><button class="btn btn-light" type="button" data-dismiss="modal">fechar</button></div>
+      </div>
+    </div>
+  </div>
 {% endblock %}

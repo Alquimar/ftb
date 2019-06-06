@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+  <div class="noticias-eventos">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 noticia-evento">
+          <h2 class="text-center section-heading">Cursos</h2>
+          <hr class="my-4">
+          <div class="text-center mx-auto service-box mt-5"><img class="img-noticia-evento" src="{% static 'img/contato-bg.jpg' %}" width="100%">
+            <h3 class="mb-3">Título do Curso</h3>
+            <p class="text-muted mb-0">Descrição do curso</p>
+          </div>
+        </div>
+        <div class="col-md-6 noticia-evento">
+          <h2 class="text-center section-heading">Competições</h2>
+          <hr class="my-4">
+          <div class="text-center mx-auto service-box mt-5"><img class="img-noticia-evento" src="{% static 'img/contato-bg.jpg' %}" width="100%">
+            <h3 class="mb-3">Título da Competição</h3>
+            <p class="text-muted mb-0">Descrição da competição</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}
