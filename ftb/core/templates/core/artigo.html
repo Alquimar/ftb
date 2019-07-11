@@ -12,9 +12,11 @@
               <img class="img-fluid" src="{{ artigo.imagem.url }}">
             {% endif %}
           </div>
+
           <div class="text">
             {{ artigo.descricao|linebreaks }}
           </div>
+
           <div>
             Data:
             {% if artigo.data_inicio %}
@@ -25,12 +27,14 @@
               {{ artigo.data_fim }}
             {% endif %}
           </div>
+
           <div>
             Taxa de inscrição: R$
             {% if artigo.taxa_inscricao %}
               {{ artigo.taxa_inscricao }}
             {% endif %}
           </div>
+
           <div>
             {% if artigo.pdf %}
               <a href="{{ artigo.pdf.url }}">Clique aqui para baixar o regulamento</a>
