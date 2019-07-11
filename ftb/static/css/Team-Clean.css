@@ -1,6 +1,8 @@
 .team-clean {
-  color: #313437;
-  background-color: #fff;
+  /*color: #313437;*/
+  /*background-color: #0b2f69;*/
+  /*background: rgb(11,47,105);*/
+  /*background: linear-gradient(140deg, rgba(11,47,105,1) 0%, rgba(48,100,181,1) 65%);*/
 }
 
 .team-clean p {
@@ -33,19 +35,19 @@
 }
 
 .team-clean .people {
-  padding-bottom: 40px;
+  /*padding-bottom: 40px;*/
 }
 
 .team-clean .item {
   text-align: center;
-  padding-top: 50px;
+  /*padding-top: 50px;*/
 }
 
 .team-clean .item .name {
   font-weight: bold;
-  margin-top: 28px;
+  /*margin-top: 28px;*/
   margin-bottom: 8px;
-  color: inherit;
+  color: #0b2f69;
 }
 
 .team-clean .item .title {

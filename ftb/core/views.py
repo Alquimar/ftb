@@ -1,6 +1,6 @@
 from django.shortcuts import render
 
-from .models import Noticia
+from .models import Noticia, Evento
 
 
 def home(request):
@@ -29,9 +29,32 @@ def noticias(request):
     return render(request, template_name, context)
 
 
+def noticia_detalhes(request, noticia_id):
+    noticia = Noticia.objects.get(pk=noticia_id)
+    template_name = "core/artigo.html"
+    context = {
+        'artigo': noticia
+    }
+    return render(request, template_name, context)
+
+
 def eventos(request):
+    cursos = Evento.objects.filter(tipo_evento=Evento.TIPO_EVENTO_CURSO)
+    competicoes = Evento.objects.filter(tipo_evento=Evento.TIPO_EVENTO_COMPETICAO)
     template_name = "core/eventos.html"
-    context = {}
+    context = {
+        'cursos': cursos,
+        'competicoes': competicoes
+    }
+    return render(request, template_name, context)
+
+
+def evento_detalhes(request, evento_id):
+    evento = Evento.objects.get(pk=evento_id)
+    template_name = "core/artigo.html"
+    context = {
+        'artigo': evento
+    }
     return render(request, template_name, context)
 
 
