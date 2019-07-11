@@ -45,7 +45,7 @@
 
           {% if artigo.inscricao_formulario %}
             <div class="text-center">
-              <button class="btn btn-primary btn-inscricao mb-4" href="{% url 'core:iframe' artigo.pk %}">Formulário de inscrição</button>
+              <a class="btn btn-primary btn-inscricao mb-4" href="{% url 'core:iframe' artigo.pk %}">Formulário de inscrição</a>
             </div>
           {% endif %}
         </div>

@@ -2,55 +2,60 @@
 {% load static %}
 
 {% block content %}
-  <div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint"
-       data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+  {% if noticias_destaque.count > 0 %}
+    <div id="fw_al_007" class="carousel ps_rotate_scale_c ps_indicators_l ps_control_rotate_f swipe_x ps_easeOutQuint"
+         data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
 
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#fw_al_007" data-slide-to="0" class="active"></li>
-    <li data-target="#fw_al_007" data-slide-to="1"></li>
-    <li data-target="#fw_al_007" data-slide-to="2"></li>
-  </ol>
+      <!-- Indicators -->
+      <ol class="carousel-indicators">
+        <li data-target="#fw_al_007" data-slide-to="0" class="active"></li>
+        <li data-target="#fw_al_007" data-slide-to="1"></li>
+        <li data-target="#fw_al_007" data-slide-to="2"></li>
+      </ol>
 
-  <!-- Wrapper For Slides -->
-  <div class="carousel-inner" role="listbox">
-    {% for noticia_destaque in noticias_destaque %}
-      {% if forloop.first %}
-        <div class="carousel-item active">
-      {% else %}
-        <div class="carousel-item">
-      {% endif %}
+      <!-- Wrapper For Slides -->
+      <div class="carousel-inner" role="listbox">
+        {% for noticia_destaque in noticias_destaque %}
+          {% if forloop.first %}
+            <div class="carousel-item active">
+          {% else %}
+            <div class="carousel-item">
+          {% endif %}
 
-    <!-- Slide Background -->
-    {% if noticia_destaque.imagem %}
-      <img src="{{ noticia_destaque.imagem.url }}" alt="fw_al_007_01">
-    {% else %}
-      <img src="{% static 'img/contato-bg.jpg' %}" alt="fw_al_007_01">
-    {% endif %}
+        <!-- Slide Background -->
+        {% if noticia_destaque.imagem %}
+          <img src="{{ noticia_destaque.imagem.url }}" alt="fw_al_007_01">
+        {% else %}
+          <img src="{% static 'img/contato-bg.jpg' %}" alt="fw_al_007_01">
+        {% endif %}
 
-    <!-- Slide Text Layer -->
-    <div class="fw_al_007_slide">
-      <h3 data-animation="animated flipInX">Notícias</h3>
-      <h1 data-animation="animated flipInX"><span>{{ noticia_destaque.titulo }}</span></h1>
-      <p data-animation="animated flipInX">{{ noticia_destaque.descricao|truncatechars:100 }}</p>
-      <a href="#" data-animation="animated flipInX">Leia Mais</a>
-    </div>
-    </div>
-    {% endfor %}
-    <!-- End of Slide -->
+        <!-- Slide Text Layer -->
+        <div class="fw_al_007_slide">
+          <h3 data-animation="animated flipInX">Notícias</h3>
+          <h1 data-animation="animated flipInX"><span>{{ noticia_destaque.titulo }}</span></h1>
+          <p data-animation="animated flipInX">{{ noticia_destaque.descricao|safe|truncatechars:100 }}</p>
+          <a href="#" data-animation="animated flipInX">Leia Mais</a>
+        </div>
+        </div>
+        {% endfor %}
+        <!-- End of Slide -->
 
-    </div><!-- End of Wrapper For Slides -->
+        </div><!-- End of Wrapper For Slides -->
 
-    <!-- Left Control -->
-    <a class="carousel-control-prev" href="#fw_al_007" data-slide="prev">
-      <span class="fa fa-angle-left" aria-hidden="true"></span>
-    </a>
-    <!-- Right Control -->
-    <a class="carousel-control-next" href="#fw_al_007" data-slide="next">
-      <span class="fa fa-angle-right" aria-hidden="true"></span>
-    </a>
-  </div>
-  <!-- End -->
+        <!-- Left Control -->
+        <a class="carousel-control-prev" href="#fw_al_007" data-slide="prev">
+          <span class="fa fa-angle-left" aria-hidden="true"></span>
+        </a>
+        <!-- Right Control -->
+        <a class="carousel-control-next" href="#fw_al_007" data-slide="next">
+          <span class="fa fa-angle-right" aria-hidden="true"></span>
+        </a>
+      </div>
+    </div><!-- End -->
+  {% else %}
+    <div style="background-image: url({% static 'img/default-banner.jpg' %});background-position: top;background-size: cover;background-repeat: no-repeat;width: 100%;min-height: 300px;max-height: 600px;"></div>
+  {% endif %}
+
   <div class="noticias-eventos">
     <div class="container">
       <div class="row">
@@ -63,7 +68,7 @@
                 <img class="img-noticia-evento" src="{{ noticia_recente.imagem.url }}" width="100%">
               {% endif %}
               <a href="#modal-noticia" data-toggle="modal"><h3 class="mb-3">{{ noticia_recente.titulo }}</h3></a>
-              <p class="text-muted mb-0">{{ noticia_recente.descricao|truncatechars:100 }}</p>
+              <p class="text-muted mb-0">{{ noticia_recente.descricao|safe|truncatechars:100 }}</p>
             </div>
           {% endfor %}
         </div>

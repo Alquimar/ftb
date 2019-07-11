@@ -72,7 +72,7 @@ def estatuto(request):
 
 def iframe(request, evento_id):
     evento = Evento.objects.get(pk=evento_id)
-    template_name = "core/form_inscricao.html"
+    template_name = "core/inscricao.html"
     context = {
         'evento': evento
     }
