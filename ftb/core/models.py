@@ -3,11 +3,12 @@ from django.db.models.signals import post_delete
 from django.dispatch import receiver
 
 from model_utils import Choices
+from ckeditor.fields import RichTextField
 
 
 class AbstractModel(models.Model):
     titulo = models.CharField('Título', max_length=100)
-    descricao = models.TextField('Descrição', blank=True, null=True)
+    descricao = RichTextField('Descrição', blank=True, null=True)
     criado_em = models.DateTimeField('Criado em', auto_now_add=True)
     atualizado_em = models.DateTimeField('Atualizado em', auto_now=True)
 
@@ -43,16 +44,15 @@ class Evento(AbstractModel):
                                null=True, blank=True)
     data_inicio = models.DateField('Início')
     data_fim = models.DateField('Fim')
-    taxa_inscricao = models.DecimalField('Taxa de inscrição (R$)', max_digits=10, decimal_places=2)
-    pdf = models.FileField(upload_to='eventos/pdfs', verbose_name='Regulamento/Normas')
+    inscricao_data_inicio = models.DateField('Início das inscrições')
+    inscricao_data_fim = models.DateField('Fim das inscrições')
+    inscricao_formulario = models.CharField('Formulário', max_length=1000)
+    # pdf = models.FileField(upload_to='eventos/pdfs', verbose_name='Regulamento/Normas')
 
 
 @receiver(post_delete, sender=Evento)
-def submission_delete(sender, instance, **kwargs):
-    instance.imagem.delete(False)
-    instance.pdf.delete(False)
-
-
 @receiver(post_delete, sender=Noticia)
 def submission_delete(sender, instance, **kwargs):
     instance.imagem.delete(False)
+    # if sender.__name__ == "Evento":
+    #     instance.pdf.delete(False)

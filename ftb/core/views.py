@@ -68,3 +68,12 @@ def estatuto(request):
     template_name = "core/estatuto.html"
     context = {}
     return render(request, template_name, context)
+
+
+def iframe(request, evento_id):
+    evento = Evento.objects.get(pk=evento_id)
+    template_name = "core/form_inscricao.html"
+    context = {
+        'evento': evento
+    }
+    return render(request, template_name, context)

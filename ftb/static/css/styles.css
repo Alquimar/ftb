@@ -68,3 +68,11 @@ body {
   /*filter: blur(2px);*/
 }
 
+.div-google-form {
+  text-align: center;
+  padding: 20pt;
+}
+ .btn-inscricao {
+   width: 60%;
+   text-align: center;
+ }

@@ -6,40 +6,48 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-10 col-xl-8 offset-lg-1 offset-xl-2">
+          {#          <div class="intro">#}
+          {#            <h1 class="text-center">{{ artigo.titulo }}</h1>#}
+          {#            {% if artigo.imagem %}#}
+          {#              <img class="img-fluid" src="{{ artigo.imagem.url }}">#}
+          {#            {% endif %}#}
+          {#          </div>#}
+
           <div class="intro">
-            <h1 class="text-center">{{ artigo.titulo }}</h1>
-            {% if artigo.imagem %}
-              <img class="img-fluid" src="{{ artigo.imagem.url }}">
-            {% endif %}
+            <div class="text">
+              {{ artigo.descricao|safe }}
+            </div>
           </div>
 
-          <div class="text">
-            {{ artigo.descricao|linebreaks }}
-          </div>
+          {#          <div>#}
+          {#            {% if artigo.data_inicio %}#}
+          {#              Data:#}
+          {#              {{ artigo.data_inicio }}#}
+          {#            {% endif %}#}
+          {#            {% if artigo.data_fim %}#}
+          {#              a#}
+          {#              {{ artigo.data_fim }}#}
+          {#            {% endif %}#}
+          {#          </div>#}
+          {##}
+          {#          <div>#}
+          {#            {% if artigo.taxa_inscricao %}#}
+          {#              Taxa de inscrição: R$#}
+          {#              {{ artigo.taxa_inscricao }}#}
+          {#            {% endif %}#}
+          {#          </div>#}
+          {##}
+          {#          <div>#}
+          {#            {% if artigo.pdf %}#}
+          {#              <a href="{{ artigo.pdf.url }}">Clique aqui para baixar o regulamento</a>#}
+          {#            {% endif %}#}
+          {#          </div>#}
 
-          <div>
-            Data:
-            {% if artigo.data_inicio %}
-              {{ artigo.data_inicio }}
-            {% endif %}
-            {% if artigo.data_fim %}
-              a
-              {{ artigo.data_fim }}
-            {% endif %}
-          </div>
-
-          <div>
-            Taxa de inscrição: R$
-            {% if artigo.taxa_inscricao %}
-              {{ artigo.taxa_inscricao }}
-            {% endif %}
-          </div>
-
-          <div>
-            {% if artigo.pdf %}
-              <a href="{{ artigo.pdf.url }}">Clique aqui para baixar o regulamento</a>
-            {% endif %}
-          </div>
+          {% if artigo.inscricao_formulario %}
+            <div class="text-center">
+              <button class="btn btn-primary btn-inscricao mb-4" href="{% url 'core:iframe' artigo.pk %}">Formulário de inscrição</button>
+            </div>
+          {% endif %}
         </div>
       </div>
     </div>

@@ -62,6 +62,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
     # "django.contrib.humanize", # Handy template tags
     "django.contrib.admin",
+    "ckeditor",
 ]
 THIRD_PARTY_APPS = [
     "crispy_forms",
@@ -151,6 +152,13 @@ STATICFILES_FINDERS = [
 MEDIA_ROOT = str(APPS_DIR("media"))
 # https://docs.djangoproject.com/en/dev/ref/settings/#media-url
 MEDIA_URL = "/media/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': None,
+    }
+}
 
 # TEMPLATES
 # ------------------------------------------------------------------------------

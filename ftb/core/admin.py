@@ -10,7 +10,7 @@ class NoticiaAdmin(admin.ModelAdmin):
 
 
 class EventoAdmin(admin.ModelAdmin):
-    list_display = ['titulo', 'descricao', 'data_inicio', 'data_fim', 'taxa_inscricao', 'pdf']
+    list_display = ['titulo', 'descricao', 'data_inicio', 'data_fim']
     search_fields = ['titulo']
     list_filter = ['criado_em', 'data_inicio']
 

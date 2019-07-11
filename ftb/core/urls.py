@@ -1,4 +1,5 @@
-from django.urls import path
+from django.urls import path, include
+from django.conf.urls import url
 
 from ftb.core import views
 
@@ -10,7 +11,8 @@ urlpatterns = [
     path("noticias/<int:noticia_id>/", views.noticia_detalhes, name="noticia_detalhes"),
     path("eventos/", views.eventos, name="eventos"),
     path("eventos/<int:evento_id>/", views.evento_detalhes, name="evento_detalhes"),
+    path("eventos/<int:evento_id>/inscricao", views.iframe, name="iframe"),
     path("contato/", views.contato, name="contato"),
     path("estatuto/", views.estatuto, name="estatuto"),
-    # path("federacao/", views.federacao, name="federacao"),
+    url(r'^ckeditor/', include('ckeditor_uploader.urls')),
 ]
