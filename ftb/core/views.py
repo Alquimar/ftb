@@ -1,4 +1,7 @@
 from django.shortcuts import render
+from django.conf import settings
+from django.contrib import messages
+from django.core.mail import send_mail
 
 from .models import Noticia, Evento
 
@@ -59,6 +62,25 @@ def evento_detalhes(request, evento_id):
 
 
 def contato(request):
+    data = request.POST
+    nome = None
+    email = None
+    mensagem = None
+
+    if request.method == 'POST':
+        nome = data['nome']
+        email = data['email']
+        mensagem = data['mensagem']
+
+        subject = '[CONTATO-SITE] - Usuário: %s, Email: %s' % (nome, email)
+        message = mensagem
+        from_email = settings.EMAIL_HOST_USER
+        to_list = [settings.EMAIL_HOST_USER]
+
+        send_mail(subject, message, from_email, to_list, fail_silently=True)
+
+        messages.success(request, 'Seu email foi recebido,  em breve entraremos em contato!')
+
     template_name = "core/contato.html"
     context = {}
     return render(request, template_name, context)
